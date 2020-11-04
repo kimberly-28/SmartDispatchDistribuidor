@@ -1,0 +1,40 @@
+<mat-toolbar>
+
+  <button *ngIf="logoutbtn" mat-icon-button id="menu" (click)="navService.openNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>SmartControl</span>
+
+  <span routerLink="login" routerLinkActive="active">Login</span>
+
+  <span routerLink="register" routerLinkActive="active">Register</span>
+
+  <span *ngIf="logoutbtn" class="btn btn-block" (click)="logout()"> Logout</span> 
+
+  <span class="example-spacer"></span> 
+
+  <ul class="nav nav-tabs d-flex justify-content-center">
+    
+    <div class="d-flex justify-content-center">
+      <li class="nav-item">
+        <a [routerLink]="['/Buy-Car']" routerLinkActive="router-link-active">Buy Car</a>
+      </li>
+
+
+
+    </div>
+
+      <!-- <li class="nav-item">
+        <a [routerLink]="['/Order-Payment']" routerLinkActive="router-link-active">Order Payment</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/Offert-Products']" routerLinkActive="router-link-active">Offert Products</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['ProductsByCategory']" routerLinkActive="router-link-active">Products By Category</a>
+      </li>
+    -->
+  </ul>
+
+</mat-toolbar>

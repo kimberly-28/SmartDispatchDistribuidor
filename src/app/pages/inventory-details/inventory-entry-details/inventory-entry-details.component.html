@@ -1,0 +1,263 @@
+<p>cambio git</p>
+<form autocomplete='off' [formGroup]="formInventoryEntry">
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Product</label>
+    <div class="col">
+
+      <select class="form-control" formControlName="idProduct" [(ngModel)]="inventoryEntry.idProduct"
+      (ngModelChange)='onProductSelected($event)'>
+        <!-- <option *ngFor= "let l of productDetailsList"  [ngValue]='l.productId'>
+          {{l.productId + " "+ l.productCode + " "+ l.productCategory +" "+ l.productBrand +" "+ l.productName}}
+      </option> -->
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Quantity</label>
+    <div class="col">
+
+      <input class="form-control"
+             type="text"
+             placeholder="Quantity of product"
+             formControlName="inventoryEntryQuantityProducts"
+             [class.is-invalid]="invalidInventoryEntryQuantityProducts"
+             [(ngModel)]="inventoryEntry.inventoryEntryQuantityProducts">
+          <small *ngIf="invalidInventoryEntryQuantityProducts" class="text-danger">
+            Invalid quantity
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Entry Date</label>
+    <div class="col">
+
+      <input class="form-control"
+             type="text"
+             placeholder="Select Entry Date"
+             formControlName="inventoryEntryDate"
+             [class.is-invalid]="invalidInventoryEntryDate"
+             [(ngModel)]="inventoryEntry.inventoryEntryDate">
+          <small *ngIf="invalidInventoryEntryDate" class="text-danger">
+            Invalid entry date
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Expire Date</label>
+    <div class="col">
+
+      <input class="form-control"
+             type="text"
+             placeholder="Select Expire Date"
+             formControlName="inventoryEntryExpiryDate"
+             [class.is-invalid]="invalidInventoryEntryExpiryDate"
+             [(ngModel)]="inventoryEntry.inventoryEntryExpiryDate">
+          <small *ngIf="invalidInventoryEntryExpiryDate" class="text-danger">
+            Invalid expiri date
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col">
+      <button  (click)="shareInventoryEntry()" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
+<hr>
+<pre>
+  Form : {{ formInventoryEntry.valid}}
+  <br>
+  Status : {{formInventoryEntry.status}}
+</pre>
+
+<pre>
+  {{formInventoryEntry.value | json}}
+</pre>
+
+
+
+
+
+<div *ngFor= "let product of showProductDetails"  class="card" style="width: 18rem;">
+<!--    need coming in the object product <img src="..." class="card-img-top" alt="..."> -->
+  <div class="card-body">
+    <ng-container>
+        <ng-container *ngIf="product?.productName; else defaultValue">
+          <h5 class="card-title">Name: {{product?.productName}}</h5>
+        </ng-container>
+      <ng-template #defaultValue>
+        No value
+      </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.productCode; else defaultValue">
+        <p class="card-text">Code: {{product?.productCode}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+  </ng-container>
+
+      <ng-container>
+        <ng-container *ngIf="product?.productBrand; else defaultValue">
+          <p class="card-text">Brand: {{product?.productBrand}}</p>
+        </ng-container>
+      <ng-template #defaultValue>
+        No value
+      </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.productDesc; else defaultValue">
+        <p class="card-text">Desc: {{product?.productDesc}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.productUnit; else defaultValue">
+        <p class="card-text">Unit: {{product?.productUnit}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.productPrice; else defaultValue">
+        <p class="card-text">Price: {{product?.productPrice}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.productCostUnit; else defaultValue">
+        <p class="card-text">Cost: {{product?.productCostUnit}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+    <ng-container>
+      <ng-container *ngIf="product?.inventoryName; else defaultValue">
+        <p class="card-text">Cost Unit :{{product?.productCostUnit}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+    <ng-container>
+      <ng-container *ngIf="product?.inventoryManagerm; else defaultValue">
+        <p class="card-text">Manager: {{product?.inventoryManagerm}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.stateName; else defaultValue">
+        <p class="card-text">State: {{product?.stateName}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.warehouseTotalProduct; else defaultValue">
+        <p class="card-text">Warehouse total: {{product?.warehouseTotalProduct}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.warehouseStockProduct; else defaultValue">
+        <p class="card-text">Warehouse stock: {{product?.warehouseStockProduct}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="product?.warehousePublishedProduct; else defaultValue">
+        <p class="card-text">Warehouse published: {{product?.warehousePublishedProduct}}</p>
+      </ng-container>
+    <ng-template #defaultValue>
+      No value
+    </ng-template>
+    </ng-container>
+
+  </div>
+</div>
+
+
+
+
+<div>
+  <mat-form-field *ngFor="let filter of filterSelectObj" style="margin-left: 15px;">
+    <mat-label>Filter {{filter.name}}</mat-label>
+    <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"
+      (change)="filterChange(filter,$event)">
+      <option value="">-- Select {{filter.name}} --</option>
+      <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>
+    </select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>
+</div>
+
+<div class="container">
+<div class="table-responsive">
+
+<mat-table mat-table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="Product Code">
+    <th mat-header-cell *matHeaderCellDef> Product Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.entrySiteProductCode
+      }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Product Name">
+    <th mat-header-cell *matHeaderCellDef> Product Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.entrySiteProductName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Quantity">
+    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.inventorySiteEntryQuantityProducts}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Entry Date">
+    <th mat-header-cell *matHeaderCellDef> Entry Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.inventorySiteEntryDate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Expiry Dates">
+    <th mat-header-cell *matHeaderCellDef> Expiry Dates </th>
+    <td mat-cell *matCellDef="let element"> {{element.inventorySiteEntryExpiryDate}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+
+

@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+
+  <table class="table table-striped table-sm"style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <caption>Zones Reports</caption>
+    <thead>
+      <tr>
+        <th>orderNumber</th>
+        <th>orderContent</th>
+        <th>orderState</th>
+        <th>orderLocation</th>
+        <th>orderStatus</th>
+        <th>orderStartDate</th>
+        <th>orderDeliveredDate</th>
+        <th>assingOrderToEmployee</th>
+        <th>Send</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let order of data">
+          <td>{{order.orderNumber}}</td>
+          <td>{{order.orderContent}}</td>
+          <td>{{order.orderState}}</td>
+          <td>{{order.orderLocation}}</td>
+          <td>{{order.orderStatus}}</td>
+          <td>{{order.orderStartDate}}</td>
+          <td>{{order.orderDeliveredDate}}</td>
+          <td>
+            <select (click)="selectActivated(order)"  [(ngModel)]="order.orderOnEmployee" (ngModelChange)='onEmployeeSelected($event)'>
+              <option value="valor" selected>Employee Selected</option>
+              <option *ngFor= "let l of employee" [ngValue]='l.employee_id'>
+                {{l.name + " "+ l.last_name + " "+"ID:"+" "+ l.employee_id}}
+            </option>
+            </select>
+          </td>
+          <td>
+            <button (click)="sendAssignation(order)" >Send</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+<button (click)="saveInformatio()"></button>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+
+<button (click)="assignAll()"> print </button>
+
+</mat-dialog-actions>

@@ -1,0 +1,64 @@
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped table-sm"style="border:1px solid black;margin-left:auto;margin-right:auto;">
+      <caption>States Reports</caption>
+      <thead>
+        <tr>
+          <th>Delivery</th>
+          <th>Total #</th>
+          <th>% Completed</th>
+          <th>% In Progress</th>
+          <th>% Delayed</th>
+          <th>Speedometer reports</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tile of tiles">
+          <td>{{tile.deliveryName}}</td>
+          <td>{{tile.deliveryNum}}</td>
+          <td>{{tile.completed}}</td>
+          <td>{{tile.inProgress}}</td>
+          <td>{{tile.delayed}}</td>
+          <td>tile.name.ravReports</td>
+          <td>
+              <div class="example-button-row">
+              <button mat-raised-button>Detail</button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped table-sm"style="border:1px solid black;margin-left:auto;margin-right:auto;">
+      <caption>Zones Reports</caption>
+      <thead>
+        <tr>
+          <th>Delivery</th>
+          <th>Total #</th>
+          <th>% Completed</th>
+          <th>% In Progress</th>
+          <th>% Delayed</th>
+          <th>State</th>
+          <th>Speedometer reports</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let state of stateDetails">
+          <td>{{state.NAME}} {{state.LAST_NAME}} </td>
+          <td>{{state.LAST_NAME}}</td>
+          <td>{{state.EMPLOYEE_ID}}</td>
+          <td>{{state.ID_STATE}}</td>
+          <td>{{state.DATE_REG}}</td>
+          <td>tile.name.ravReports</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

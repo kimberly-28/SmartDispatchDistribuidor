@@ -1,0 +1,107 @@
+<form autocomplete='off' [formGroup]="formSiteRegister">
+  <div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">idState</label>
+      <div class="col">
+        <input class="form-control"
+        type="text"
+        placeholder="idState"
+        formControlName="idState"
+        [(ngModel)]="userSiteRegister.idState">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreLocation</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreLocation"
+      formControlName="siteStoreLocation"
+      [(ngModel)]="userSiteRegister.siteStoreLocation">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreName</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreName"
+      formControlName="siteStoreName"
+      [(ngModel)]="userSiteRegister.siteStoreName">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreManager</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreManager"
+      formControlName="siteStoreManager"
+      [(ngModel)]="userSiteRegister.siteStoreManager">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreUserName</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreUserName"
+      formControlName="siteStoreUserName"
+      [(ngModel)]="userSiteRegister.siteStoreUserName">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreUserPassword</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreUserPassword"
+      formControlName="siteStoreUserPassword"
+      [(ngModel)]="userSiteRegister.siteStoreUserPassword">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">siteStoreUserEmail</label>
+    <div class="col">
+      <input class="form-control"
+      type="text"
+      placeholder="siteStoreUserEmail"
+      formControlName="siteStoreUserEmail"
+      [(ngModel)]="userSiteRegister.siteStoreUserEmail">
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Register Product</label>
+    <div class="col">
+      <button  (click)="shareSiteRegistered()" class="btn btn-outline-primary">
+        Register
+      </button>
+    </div>
+  </div>
+
+</form>
+
+<button (click)="goLogin()">register</button>
+<hr>
+<pre>
+  Form : {{ formSiteRegister.valid}}
+  <br>
+  Status : {{ formSiteRegister.status}}
+</pre>
+
+<pre>
+  {{formSiteRegister.value | json}}
+</pre>

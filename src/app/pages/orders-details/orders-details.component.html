@@ -1,0 +1,85 @@
+<div class="container d-flex justify-content-center mt-5">
+  <mat-form-field *ngFor="let filter of filterSelectObj" style="margin-left: 15px;">
+    <mat-label>Filter {{filter.name}}</mat-label>
+    <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"
+      (change)="filterChange(filter,$event)">
+      <option value="">-- Select {{filter.name}} --</option>
+      <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>
+    </select>
+  </mat-form-field>
+  <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>
+</div>
+
+<div class="container">
+
+  <div class="table-responsive">
+    <mat-table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="Check">
+        <th mat-header-cell *matHeaderCellDef> Check </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox #input (change)="showChecked($event, element)" [checked]="element.orderChecked"> </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Order Number">
+        <th mat-header-cell *matHeaderCellDef> Order Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderNumber}}</td>
+
+      </ng-container>
+
+      <ng-container matColumnDef="State">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element" (click)="getOnSelectedOrder(element)"> {{element.orderState}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Employee">
+        <th mat-header-cell *matHeaderCellDef> Employee </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.nameEmployee + " " + element.lastNameEmployee + " " + element.orderOnEmployee}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Contact Number">
+        <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="element.employeeContact; else defaultValue">
+            {{element.employeeContact}}
+          </ng-container>
+        </td>
+        <ng-template #defaultValue>
+          No value
+        </ng-template>
+      </ng-container>
+
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Products">
+        <th mat-header-cell *matHeaderCellDef> Products </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderContent}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderLocation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Start Date">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderStartDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Delivered Date">
+        <th mat-header-cell *matHeaderCellDef> Delivered Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <button (click)="orderAssignment()"> Assign </button>
+</div>

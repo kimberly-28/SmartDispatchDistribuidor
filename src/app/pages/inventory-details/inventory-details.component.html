@@ -1,0 +1,62 @@
+<p>inventory-details works!</p>
+
+
+
+<div>
+  <mat-form-field *ngFor="let filter of filterSelectObj" style="margin-left: 15px;">
+    <mat-label>Filter {{filter.name}}</mat-label>
+    <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"
+      (change)="filterChange(filter,$event)">
+      <option value="">-- Select {{filter.name}} --</option>
+      <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>
+    </select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>
+</div>
+
+<div class="container">
+<div class="table-responsive">
+
+<mat-table mat-table [dataSource]="dataSource">
+
+
+  <ng-container matColumnDef="Product Code">
+    <th mat-header-cell *matHeaderCellDef> Product Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehouseSiteProductCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Product Name">
+    <th mat-header-cell *matHeaderCellDef> Product Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehouseSiteProductName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Total Products">
+    <th mat-header-cell *matHeaderCellDef> Total Products </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehouseTotalProducts}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Stock Products">
+    <th mat-header-cell *matHeaderCellDef> Stock Products </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehouseStockProducts}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Published Products">
+    <th mat-header-cell *matHeaderCellDef> Published Products </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehousePublishedProducts}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Moving Type">
+    <th mat-header-cell *matHeaderCellDef> Published Products </th>
+    <td mat-cell *matCellDef="let element"> {{element.warehouseMovingType}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+
+

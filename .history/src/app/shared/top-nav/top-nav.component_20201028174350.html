@@ -1,0 +1,28 @@
+<mat-toolbar>
+
+  <button *ngIf="logoutbtn" mat-icon-button id="menu" (click)="navService.openNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+ ]
+
+  <ul class="nav nav-tabs d-flex justify-content-center">
+    
+    <div class="d-flex justify-content-center">
+      <li class="nav-item">
+        <a [routerLink]="['/Buy-Car']" routerLinkActive="router-link-active">Buy Car</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/Order-Payment']" routerLinkActive="router-link-active">Order Payment</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/Offert-Products']" routerLinkActive="router-link-active">Offert Products</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['ProductsByCategory']" routerLinkActive="router-link-active">Products By Category</a>
+      </li>
+    </div>
+
+  </ul>
+
+</mat-toolbar>

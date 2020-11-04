@@ -1,0 +1,8 @@
+{
+  "/SmartControl2020/*": {
+    "target": "https://domappssuiteservices.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+
+}

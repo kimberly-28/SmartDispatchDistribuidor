@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+<mat-toolbar class=" d-flex justify-content-start">
+
+  <button *ngIf="logoutbtn" mat-icon-button id="menu" (click)="navService.openNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>SmartControl</span>
+
+  <span routerLink="login" routerLinkActive="active">Login</span>
+
+  <span routerLink="register" routerLinkActive="active">Register</span>
+  <ul class="nav nav-tabs d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+      <ul class="nav d-flex justify-content-center">
+        <li><a href="">Servicios</a>
+          <ul>
+            <li class="w-25 h-25">
+              <div class="card">
+                <img src="assets/aerosol.jpg" class="card-img-top h-50">
+                <div class="card-body ">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text h-50 d-flex flex wrap">This is a longer card with supporting text below as a natural lead-in to additional content.
+                    This content is a little bit longer.</p>
+                </div>
+            
+                <!-- -----INPUT ADD---- -->
+                <div class="card-footer bg-white">
+                  <div class="input-group d-flex justify-content-center">
+                    <div class="input-group-prepend less">
+                      <button class="btn btn-warning add d-flex align-items-center d-flex justify-content-center">-</button>
+                    </div>
+                    <input class="add">
+                    <div class="input-group-append">
+                      <button class="btn btn-success add d-flex align-items-center d-flex justify-content-center">+</button>
+                    </div>
+                  </div>
+                </div>                
+              </div>
+
+
+
+
+            
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- <a [routerLink]="['/Buy-Car']" routerLinkActive="router-link-active">Buy Car</a> -->
+      <!-- <li class="nav-item">
+        <a [routerLink]="['/Order-Payment']" routerLinkActive="router-link-active">Order Payment</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/Offert-Products']" routerLinkActive="router-link-active">Offert Products</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['ProductsByCategory']" routerLinkActive="router-link-active">Products By Category</a>
+      </li>
+     <li class="nav-item">   -->
+  </ul>
+
+  <span *ngIf="logoutbtn" class="btn btn-block" (click)="logout()"> Logout</span> 
+
+  <!-- <span class="example-spacer"></span>  -->
+
+</mat-toolbar>
+</div>

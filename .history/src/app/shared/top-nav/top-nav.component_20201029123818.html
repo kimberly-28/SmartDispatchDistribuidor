@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+  <div class="nav nav-top d-flex justify-content-start">
+
+    <button *ngIf="logoutbtn" mat-icon-button id="menu" (click)="navService.openNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>SmartControl</span>
+
+    <span routerLink="login" routerLinkActive="active">Login</span>
+
+    <span routerLink="register" routerLinkActive="active">Register</span>
+
+    <span *ngIf="logoutbtn" class="btn btn-block" (click)="logout()"> Logout</span>
+
+    <ul class="nav">
+      <li><a href="">Servicios</a>
+        <ul>
+          <li class="w-25 h-25">
+            <div class="card">
+              <img src="assets/aerosol.jpg" class="card-img-top h-50">
+              <div class="card-body ">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text h-50">This is a longer card with supporting text below as a natural lead-in to
+                  additional content.
+                  This content is a little bit longer.</p>
+              </div>
+    
+              <!-- -----INPUT ADD---- -->
+              <div class="card-footer bg-white">
+                <div class="input-group d-flex justify-content-center">
+                  <div class="input-group-prepend less">
+                    <button class="btn btn-warning add d-flex align-items-center d-flex justify-content-center">-</button>
+                  </div>
+                  <input class="add">
+                  <div class="input-group-append">
+                    <button class="btn btn-success add d-flex align-items-center d-flex justify-content-center">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
